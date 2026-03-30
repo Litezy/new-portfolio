@@ -128,9 +128,10 @@ export const processSteps = [
 export const arsenalChips = [
   'REACT / NEXT.JS',
   'SOLIDITY',
-  'NODE / GRAPHQL',
-  'RUST / WASM',
-  'KUBERNETES',
+  'NODE / NEST',
+  'PRISMA/ SEQUELIZE',
+  'MYSQL / POSTGRES ',
+  'DOCKER',
   'SYSTEM DESIGN',
 ]
 

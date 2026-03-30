@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { animate } from 'popmotion'
-import Footer from '../components/layout/ui/Footer'
+import Footer from '../components/Footer'
 import Layout from '../components/layout/Layout'
 
 export default function ConnectPage() {
@@ -64,11 +64,11 @@ export default function ConnectPage() {
       <div id="page-connect">
         <div className="grid min-h-[calc(100vh-64px)] max-[900px]:grid-cols-1" style={{ gridTemplateColumns: '1fr 1fr' }}>
           {/* Left */}
-          <div ref={leftRef} className="px-10 py-[60px] border-r border-[#252525] flex flex-col justify-between max-[900px]:border-r-0">
+          <div ref={leftRef} className="px-10 py-[60px] border-r border-border flex flex-col justify-between max-[900px]:border-r-0">
             <div>
               <div className="anim-child font-mono text-[10px] tracking-[0.2em] text-[#555] uppercase mb-4 flex items-center gap-3">
                 GET IN TOUCH
-                <span className="inline-block w-[60px] h-px bg-[#2e2e2e]" />
+                <span className="inline-block w-[60px] h-px bg-border2" />
               </div>
               <h1 className="anim-child font-['Bebas_Neue'] text-[clamp(52px,6vw,88px)] leading-[0.9] mb-6">
                 LET'S BUILD THE<br />
@@ -83,7 +83,7 @@ export default function ConnectPage() {
                 {channelIcons.map((icon, i) => (
                   <div
                     key={i}
-                    className="w-11 h-11 border border-[#2e2e2e] flex items-center justify-center cursor-pointer text-[#888] transition-all duration-200 hover:border-pink hover:bg-[rgba(255,45,120,0.15)] hover:text-pink hover:-translate-y-0.5"
+                    className="w-11 h-11 border border-border2 flex items-center justify-center cursor-pointer text-[#888] transition-all duration-200 hover:border-pink hover:bg-pink/20 hover:text-pink hover:-translate-y-0.5"
                   >
                     {icon}
                   </div>
@@ -101,7 +101,7 @@ export default function ConnectPage() {
           <div className="px-10 py-[60px] flex items-start justify-center">
             <div
               ref={formRef}
-              className="w-full max-w-[480px] bg-[#1a1a1a] border border-[#252525] p-10"
+              className="w-full max-w-[480px] bg-surface border border-border p-10"
             >
               {/* Field 01 */}
               <div className="mb-6">
@@ -111,7 +111,7 @@ export default function ConnectPage() {
                 <input
                   type="text"
                   placeholder="John Doe"
-                  className="w-full bg-[#181818] border border-[#2e2e2e] text-text font-['DM_Sans'] text-sm px-4 py-3 outline-none transition-all duration-200 placeholder:text-[#555] focus:border-pink focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset]"
+                  className="w-full bg-bg3 border border-border2 text-text font-['DM_Sans'] text-sm px-4 py-3 outline-none transition-all duration-200 placeholder:text-[#555] focus:border-pink focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset]"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export default function ConnectPage() {
                 <input
                   type="email"
                   placeholder="j.doe@proton.me"
-                  className="w-full bg-[#181818] border border-[#2e2e2e] text-text font-['DM_Sans'] text-sm px-4 py-3 outline-none transition-all duration-200 placeholder:text-[#555] focus:border-pink focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset]"
+                  className="w-full bg-bg3 border border-border2 text-text font-['DM_Sans'] text-sm px-4 py-3 outline-none transition-all duration-200 placeholder:text-[#555] focus:border-pink focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset]"
                 />
               </div>
 
@@ -134,7 +134,7 @@ export default function ConnectPage() {
                 </div>
                 <textarea
                   placeholder="Briefly describe your protocol or project requirements..."
-                  className="w-full bg-[#181818] border border-[#2e2e2e] text-text font-['DM_Sans'] text-sm px-4 py-3 outline-none transition-all duration-200 placeholder:text-[#555] focus:border-pink focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset] resize-none min-h-[120px]"
+                  className="w-full bg-bg3 border border-border2 text-text font-['DM_Sans'] text-sm px-4 py-3 outline-none transition-all duration-200 placeholder:text-[#555] focus:border-pink focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset] resize-none min-h-[120px]"
                 />
               </div>
 
@@ -145,7 +145,7 @@ export default function ConnectPage() {
                 className={`
                 w-full font-mono text-[11px] tracking-[0.14em] uppercase px-0 py-[18px] cursor-pointer flex items-center justify-center gap-2.5 transition-all duration-200 mt-2 border-none
                 ${btnState === 'idle' ? 'bg-pink text-[#0d0d0d] hover:bg-[#f0f0f0] hover:-translate-y-px' : ''}
-                ${btnState === 'sending' ? 'bg-[#181818] text-pink border border-pink' : ''}
+                ${btnState === 'sending' ? 'bg-bg3 text-pink border border-pink' : ''}
                 ${btnState === 'done' ? 'bg-[#1a2e1a] text-[#2ecc71] border border-[#2ecc71]' : ''}
               `}
               >

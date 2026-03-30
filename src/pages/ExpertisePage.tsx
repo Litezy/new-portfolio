@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { animate } from 'popmotion'
-import Footer from '../components/layout/ui/Footer'
+import Footer from '../components/Footer'
 import { expertiseAreas, processSteps } from '../data'
 import Layout from '../components/layout/Layout';
 
