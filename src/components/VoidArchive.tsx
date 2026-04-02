@@ -32,7 +32,7 @@ const VoidArchive = () => {
       className="bg-[#0d0d0d] hover:bg-[#111] transition-colors duration-200 cursor-pointer p-7 flex items-center justify-between group"
     >
       <div className="flex flex-col gap-1">
-        <p className="font-['Bebas_Neue'] text-[clamp(20px,2.2vw,30px)] text-[#f5f5f5] leading-none group-hover:text-pink transition-colors duration-200">
+        <p className="font-['Bebas_Neue'] text-[clamp(20px,2.2vw,30px)] text-[#f5f5f5] leading-none group-hover:text-aqua transition-colors duration-200">
           THE VOID ARCHIVE
         </p>
 
@@ -43,7 +43,7 @@ const VoidArchive = () => {
         </p>
       </div>
 
-      <div className="w-10 h-10 border border-[#252525] flex items-center justify-center text-[#444] shrink-0 group-hover:border-pink group-hover:text-pink transition-all duration-200">
+      <div className="w-10 h-10 border border-[#252525] flex items-center justify-center text-[#444] shrink-0 group-hover:border-aqua group-hover:text-aqua transition-all duration-200">
         <ArrowRight size={16} />
       </div>
     </div>

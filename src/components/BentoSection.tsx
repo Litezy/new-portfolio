@@ -98,7 +98,7 @@ const WorkCard = ({ project, filter }: WorkCardProps) => {
     >
       {/* Top row */}
       <div className="flex items-center justify-between">
-        <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-pink opacity-80">
+        <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-aqua opacity-80">
           {project.tag}
         </span>
         <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-[#3a3a3a] border border-[#222] px-2 py-0.5">
@@ -107,7 +107,7 @@ const WorkCard = ({ project, filter }: WorkCardProps) => {
       </div>
 
       {/* Title */}
-      <h4 className="font-['Bebas_Neue'] text-[24px] leading-none text-[#f5f5f5] group-hover:text-pink transition-colors duration-200">
+      <h4 className="font-['Bebas_Neue'] text-[24px] leading-none text-[#f5f5f5] group-hover:text-aqua transition-colors duration-200">
         {project.name.toUpperCase()}
       </h4>
 
@@ -115,12 +115,12 @@ const WorkCard = ({ project, filter }: WorkCardProps) => {
       <p className="text-[13px] text-[#888] leading-relaxed flex-1">{project.desc}</p>
 
       {/* CTA — visible on hover */}
-      <div className="flex items-center gap-1.5 font-mono text-[9px] tracking-[0.12em] uppercase text-pink opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      <div className="flex items-center gap-1.5 font-mono text-[9px] tracking-[0.12em] uppercase text-aqua opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         VIEW PROJECT <ArrowRight size={12} />
       </div>
 
       {/* Left accent bar */}
-      <div className="absolute left-0 top-0 w-[2px] h-0 bg-pink group-hover:h-full transition-all duration-300" />
+      <div className="absolute left-0 top-0 w-[2px] h-0 bg-aqua group-hover:h-full transition-all duration-300" />
     </div>
   )
 }
@@ -140,7 +140,7 @@ const CategoryHeader = ({ icon, title, subtitle, filter }: CategoryHeaderProps) 
   return (
     <div className="p-6 pb-4 border-b border-[#1a1a1a] flex items-center justify-between">
       <div className="flex items-center gap-2.5">
-        <div className="w-7 h-7 border border-[#2a2a2a] flex items-center justify-center text-pink">
+        <div className="w-7 h-7 border border-[#2a2a2a] flex items-center justify-center text-aqua">
           {icon}
         </div>
         <div>
@@ -154,7 +154,7 @@ const CategoryHeader = ({ icon, title, subtitle, filter }: CategoryHeaderProps) 
       </div>
       <button
         onClick={() => navigate(`/work?filter=${filter}`)}
-        className="font-mono text-[8px] tracking-[0.12em] uppercase text-pink border border-[#2a1520] px-3 py-1.5 hover:bg-pink hover:text-[#0d0d0d] transition-all duration-200 flex items-center gap-1.5"
+        className="font-mono text-[8px] tracking-[0.12em] uppercase text-aqua border border-[#2a1520] px-3 py-1.5 hover:bg-aqua hover:text-[#0d0d0d] transition-all duration-200 flex items-center gap-1.5"
       >
         ALL <ArrowRight size={10} />
       </button>
@@ -166,7 +166,7 @@ const CategoryHeader = ({ icon, title, subtitle, filter }: CategoryHeaderProps) 
 
 const QuoteCard = ({ quote }: { quote: Quote }) => (
   <div className="bg-[#0d0d0d] p-6 flex flex-col gap-3 relative overflow-hidden">
-    <div className="text-pink">
+    <div className="text-aqua">
       <QuoteIcon />
     </div>
     <p className="text-[14px] text-[#666] leading-relaxed italic flex-1">{quote.text}</p>
@@ -182,11 +182,11 @@ const BioBlock = () => {
   return (
     <div className="bg-[#0d0d0d] p-7 flex flex-col gap-5 relative overflow-hidden">
       {/* Corner brackets */}
-      <div className="absolute top-4 left-4 w-5 h-5 border-l border-t border-pink opacity-30 pointer-events-none" />
-      <div className="absolute bottom-4 right-4 w-5 h-5 border-r border-b border-pink opacity-30 pointer-events-none" />
+      <div className="absolute top-4 left-4 w-5 h-5 border-l border-t border-aqua opacity-30 pointer-events-none" />
+      <div className="absolute bottom-4 right-4 w-5 h-5 border-r border-b border-aqua opacity-30 pointer-events-none" />
 
       <div>
-        <p className="font-mono text-[8px] tracking-[0.2em] uppercase text-pink mb-3">
+        <p className="font-mono text-[8px] tracking-[0.2em] uppercase text-aqua mb-3">
           THE ARCHITECT
         </p>
         <p className="text-[13px] text-[#666] leading-relaxed">
@@ -216,7 +216,7 @@ const BioBlock = () => {
 
       <button
         onClick={() => navigate('/about')}
-        className="mt-auto cursor-pointer font-mono text-[9px] tracking-[0.12em] uppercase text-pink border border-[#2a1520] px-4 py-2.5 hover:bg-pink hover:text-[#0d0d0d] transition-all duration-200 flex items-center justify-center gap-2"
+        className="mt-auto cursor-pointer font-mono text-[9px] tracking-[0.12em] uppercase text-aqua border border-[#2a1520] px-4 py-2.5 hover:bg-aqua hover:text-[#0d0d0d] transition-all duration-200 flex items-center justify-center gap-2"
       >
         FULL PROFILE <ArrowRight size={11} />
       </button>

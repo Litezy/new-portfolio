@@ -108,7 +108,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="text-[16px] font-semibold text-text mb-2 group-hover:text-pink transition">
+        <h3 className="text-[16px] font-semibold text-text mb-2 group-hover:text-aqua transition">
           {project.name}
         </h3>
 
@@ -132,7 +132,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#1a1a1a]">
           <button
             onClick={goToDetail}
-            className="text-[11px] cursor-pointer font-mono uppercase tracking-wide text-pink flex items-center gap-2"
+            className="text-[11px] cursor-pointer font-mono uppercase tracking-wide text-aqua flex items-center gap-2"
           >
             Learn more <ArrowRight size={12} />
           </button>
@@ -210,13 +210,13 @@ export default function WorkPage() {
           <div className="anim-child font-mono text-[9px] tracking-[0.22em] text-[#3a3a3a] uppercase mb-5 flex items-center gap-3">
             PORTFOLIO INDEX
             <span className="inline-block w-14 h-px bg-[#222]" />
-            <span className="text-pink">{projects.length} PROJECTS</span>
+            <span className="text-aqua">{projects.length} PROJECTS</span>
           </div>
 
           <h1 className="anim-child font-['Bebas_Neue'] text-[clamp(42px,6.5vw,90px)] leading-[0.9] tracking-[0.02em] mb-5">
             ARCHITECTING THE
             <br />
-            <span className="text-pink">DECENTRALIZED VOID</span>
+            <span className="text-aqua">DECENTRALIZED VOID</span>
           </h1>
 
           <p className="anim-child text-[14px] text-[#4a4a4a] max-w-[520px] leading-relaxed mb-8">
@@ -242,8 +242,8 @@ export default function WorkPage() {
                     'px-5 py-3 flex items-center gap-2',
                     'transition-all duration-200 cursor-pointer',
                     isActive
-                      ? 'bg-pink text-[#0d0d0d]'
-                      : 'bg-[#0d0d0d] border border-[#1c1c1c] text-[#555] hover:text-pink hover:border-[rgba(255,45,120,0.2)]',
+                      ? 'bg-aqua text-[#0d0d0d]'
+                      : 'bg-[#0d0d0d] border border-[#1c1c1c] text-[#555] hover:text-aqua hover:border-[rgba(255,45,120,0.2)]',
                   ]
                     .filter(Boolean)
                     .join(' ')}
@@ -265,7 +265,7 @@ export default function WorkPage() {
             {activeFilter && (
               <button
                 onClick={() => setFilter('')}
-                className="ml-3 font-mono text-[8px] tracking-[0.14em] uppercase text-[#555] flex items-center gap-1.5 hover:text-pink transition-colors duration-200"
+                className="ml-3 font-mono text-[8px] tracking-[0.14em] uppercase text-[#555] flex items-center gap-1.5 hover:text-aqua transition-colors duration-200"
               >
                 ✕ CLEAR
               </button>
@@ -316,7 +316,7 @@ export default function WorkPage() {
             </p>
             <button
               onClick={() => setFilter('')}
-              className="font-mono text-[9px] tracking-[0.14em] uppercase text-pink border border-[rgba(255,45,120,0.3)] px-6 py-3 hover:bg-pink hover:text-[#0d0d0d] transition-all duration-200 flex items-center gap-2"
+              className="font-mono text-[9px] tracking-[0.14em] uppercase text-aqua border border-[rgba(255,45,120,0.3)] px-6 py-3 hover:bg-aqua hover:text-[#0d0d0d] transition-all duration-200 flex items-center gap-2"
             >
               CLEAR FILTER <ArrowRight size={11} />
             </button>
@@ -335,7 +335,7 @@ export default function WorkPage() {
           </div>
           <button
             onClick={() => navigate('/connect')}
-            className="shrink-0 font-mono text-[9px] tracking-[0.16em] uppercase bg-pink text-[#0d0d0d] px-6 py-3 flex items-center gap-2 transition-all duration-200 hover:bg-[#e0245e]"
+            className="shrink-0 font-mono text-[9px] tracking-[0.16em] uppercase bg-aqua text-[#0d0d0d] px-6 py-3 flex items-center gap-2 transition-all duration-200 hover:bg-[#e0245e]"
           >
             START A PROJECT <ArrowRight size={11} />
           </button>

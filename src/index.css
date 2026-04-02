@@ -16,9 +16,9 @@
   --color-surface:    #1a1a1a;
   --color-border:     #252525;
   --color-border2:    #2e2e2e;
-  --color-pink:       aqua;
-  --color-pink-dim:   #c91f5a;
-  --color-pink-glow:  rgba(255,45,120,0.15);
+  --color-aqua:       aqua;
+  --color-aqua-dim:   #c91f5a;
+  --color-aqua-glow:  rgba(255,45,120,0.15);
   --color-text:       #f5f5f5;       
   --color-text-dim:   #aaaaaa;        
   --color-text-muted: #777777;        

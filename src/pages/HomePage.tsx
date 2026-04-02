@@ -21,7 +21,7 @@ const STACK_TAGS = [
 
 const NODES = [
   { key: 'WALLET', val: '0xBe1z...4B4', cls: 'text-text' },
-  { key: 'NETWORK', val: 'Lisk Sepolia', cls: 'text-pink' },
+  { key: 'NETWORK', val: 'Lisk Sepolia', cls: 'text-aqua' },
   { key: 'STATUS', val: 'AVAILABLE', cls: 'text-[#2ecc71]' },
 ]
 
@@ -46,8 +46,8 @@ export default function HomePage() {
 
               {/* eyebrow */}
               <div className="flex items-center gap-3 mb-5">
-                <span className="w-6 h-px bg-pink" />
-                <span className="font-mono text-[10px] tracking-[0.2em] text-pink uppercase">
+                <span className="w-6 h-px bg-aqua" />
+                <span className="font-mono text-[10px] tracking-[0.2em] text-aqua uppercase">
                   Fullstack · Blockchain Engineer
                 </span>
               </div>
@@ -58,7 +58,7 @@ export default function HomePage() {
                   BETHEL NNADI
                 </span>
                 <span
-                  className="block text-[clamp(52px,7vw,108px)] text-pink"
+                  className="block text-[clamp(52px,7vw,108px)] text-aqua"
                   style={{ textShadow: '0 0 60px rgba(255,45,120,0.25)' }}
                 >
                   BUILDS.
@@ -80,7 +80,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3 anim-child ">
                 <button
                   onClick={() => navigate('/connect')}
-                  className="font-mono text-[11px] tracking-[0.12em] uppercase bg-pink text-[#0d0d0d] border-none px-6 py-3.5 cursor-pointer flex items-center gap-2  transition-colors duration-200"
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase bg-aqua text-[#0d0d0d] border-none px-6 py-3.5 cursor-pointer flex items-center gap-2  transition-colors duration-200"
                   style={{ boxShadow: '0 0 24px rgba(255,45,120,0.2)' }}
                 >
                   INITIALIZE PROJECT
@@ -91,7 +91,7 @@ export default function HomePage() {
 
                 <button
                   onClick={() => navigate('/work')}
-                  className="font-mono text-[11px] tracking-[0.12em] uppercase bg-transparent text-text border border-[#2e2e2e] px-6 py-3.5 cursor-pointer hover:border-pink hover:text-pink transition-all duration-200"
+                  className="font-mono text-[11px] tracking-[0.12em] uppercase bg-transparent text-text border border-[#2e2e2e] px-6 py-3.5 cursor-pointer hover:border-aqua hover:text-aqua transition-all duration-200"
                 >
                   VIEW ARCHIVE
                 </button>
@@ -128,12 +128,12 @@ export default function HomePage() {
               <div className="bg-[#111] anim-child  border border-[#252525] px-5 py-4 flex items-center justify-between">
                 <div>
                   <p className="font-mono text-[9px] tracking-[0.22em] text-[#444] uppercase mb-1">CONTRACTS_DEPLOYED</p>
-                  <p className="font-['Bebas_Neue'] text-[34px] text-pink leading-none"
+                  <p className="font-['Bebas_Neue'] text-[34px] text-aqua leading-none"
                     style={{ textShadow: '0 0 20px rgba(255,45,120,0.3)' }}>
                     12+
                   </p>
                 </div>
-                <div className="w-10 h-10 border border-[#252525] flex items-center justify-center text-pink">
+                <div className="w-10 h-10 border border-[#252525] flex items-center justify-center text-aqua">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M8 1l2 4 5 .7-3.5 3.4.8 4.9L8 12l-4.3 2 .8-4.9L1 5.7 6 5z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
                   </svg>

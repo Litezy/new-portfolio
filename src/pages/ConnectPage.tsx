@@ -124,7 +124,7 @@ export default function ConnectPage() {
 
               <h1 className="anim-child font-display text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] leading-[0.9] mb-6">
                 LET'S BUILD THE <br />
-                <span className="text-pink">VOID</span> TOGETHER.
+                <span className="text-aqua">VOID</span> TOGETHER.
               </h1>
 
               <p className="anim-child text-[14px] md:text-[15px] text-text-dim leading-[1.7] max-w-[420px] mb-10">
@@ -178,7 +178,7 @@ export default function ConnectPage() {
               {/* Name */}
               <div className="mb-6">
                 <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-text-muted mb-2 flex gap-2">
-                  <span className="text-pink">01</span> / FULL NAME
+                  <span className="text-aqua">01</span> / FULL NAME
                 </div>
                 <input
                   type="text"
@@ -189,7 +189,7 @@ export default function ConnectPage() {
                   className={`
                     w-full bg-bg3 border text-text text-sm px-4 py-3 outline-none
                     placeholder:text-text-muted transition-colors duration-200
-                    ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-border2 focus:border-pink'}
+                    ${errors.name ? 'border-red-500 focus:border-red-500' : 'border-border2 focus:border-aqua'}
                     focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset]
                   `}
                 />
@@ -201,7 +201,7 @@ export default function ConnectPage() {
               {/* Email */}
               <div className="mb-6">
                 <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-text-muted mb-2 flex gap-2">
-                  <span className="text-pink">02</span> / EMAIL ADDRESS
+                  <span className="text-aqua">02</span> / EMAIL ADDRESS
                 </div>
                 <input
                   type="email"
@@ -212,7 +212,7 @@ export default function ConnectPage() {
                   className={`
                     w-full bg-bg3 border text-text text-sm px-4 py-3 outline-none
                     placeholder:text-text-muted transition-colors duration-200
-                    ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-border2 focus:border-pink'}
+                    ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-border2 focus:border-aqua'}
                     focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset]
                   `}
                 />
@@ -224,7 +224,7 @@ export default function ConnectPage() {
               {/* Message */}
               <div className="mb-6">
                 <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-text-muted mb-2 flex gap-2">
-                  <span className="text-pink">03</span> / MESSAGE
+                  <span className="text-aqua">03</span> / MESSAGE
                 </div>
                 <textarea
                   name="message"
@@ -234,7 +234,7 @@ export default function ConnectPage() {
                   className={`
                     w-full bg-bg3 border text-text text-sm px-4 py-3 outline-none
                     placeholder:text-text-muted resize-none min-h-[120px] transition-colors duration-200
-                    ${errors.message ? 'border-red-500 focus:border-red-500' : 'border-border2 focus:border-pink'}
+                    ${errors.message ? 'border-red-500 focus:border-red-500' : 'border-border2 focus:border-aqua'}
                     focus:shadow-[0_0_0_1px_rgba(255,45,120,0.1)_inset]
                   `}
                 />
@@ -250,8 +250,8 @@ export default function ConnectPage() {
                 className={`
                   w-full font-mono text-[11px] tracking-[0.14em] uppercase py-4
                   flex items-center justify-center gap-2 transition-all duration-300
-                  ${btnState === "idle"    ? "bg-pink text-bg hover:opacity-90 cursor-pointer" : ""}
-                  ${btnState === "sending" ? "bg-bg3 text-pink border border-pink cursor-not-allowed" : ""}
+                  ${btnState === "idle"    ? "bg-aqua text-bg hover:opacity-90 cursor-pointer" : ""}
+                  ${btnState === "sending" ? "bg-bg3 text-aqua border border-aqua cursor-not-allowed" : ""}
                   ${btnState === "done"    ? "bg-[#1a2e1a] text-[#2ecc71] border border-[#2ecc71]" : ""}
                   ${btnState === "error"   ? "bg-[#2e1a1a] text-red-400 border border-red-500" : ""}
                 `}

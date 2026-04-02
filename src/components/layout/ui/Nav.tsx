@@ -39,7 +39,7 @@ export default function Nav() {
         {/* ── Logo ── */}
         <button
           onClick={() => navigate('/')}
-          className="font-mono text-[13px] font-bold text-pink tracking-[0.04em] cursor-pointer logo-glow bg-transparent border-none uppercase"
+          className="font-mono text-[13px] font-bold text-aqua tracking-[0.04em] cursor-pointer logo-glow bg-transparent border-none uppercase"
         >
           <img src={image} className='w-10 h-10 rounded-full object-contain' alt="" />
         </button>
@@ -60,7 +60,7 @@ export default function Nav() {
                 >
                   {label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-px bg-pink" />
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-aqua" />
                   )}
                 </button>
               </li>
@@ -71,7 +71,7 @@ export default function Nav() {
         {/* ── Desktop CTA ── */}
         <button
           onClick={() => navigate('/connect')}
-          className="hidden md:block font-mono text-[11px] tracking-widest uppercase text-bg bg-pink border-none px-5 py-2.5 cursor-pointer transition-all duration-200 hover:bg-pink/80 hover:-translate-y-px"
+          className="hidden md:block font-mono text-[11px] tracking-widest uppercase text-bg bg-aqua border-none px-5 py-2.5 cursor-pointer transition-all duration-200 hover:bg-aqua/80 hover:-translate-y-px"
         >
           Hire Me
         </button>
@@ -105,7 +105,7 @@ export default function Nav() {
                   font-mono text-[12px] tracking-[0.15em] uppercase text-left
                   py-3 px-3 border-b border-[#1a1a1a] bg-transparent border-l-0 border-r-0 border-t-0
                   cursor-pointer transition-colors duration-200
-                  ${isActive ? 'text-pink' : 'text-[#666] hover:text-text'}
+                  ${isActive ? 'text-aqua' : 'text-[#666] hover:text-text'}
                 `}
               >
                 {label}
@@ -114,7 +114,7 @@ export default function Nav() {
           })}
           <button
             onClick={() => navigate('/connect')}
-            className="font-mono text-[11px] tracking-widest uppercase text-[#0d0d0d] bg-pink border-none px-5 py-3 cursor-pointer mt-3"
+            className="font-mono text-[11px] tracking-widest uppercase text-[#0d0d0d] bg-aqua border-none px-5 py-3 cursor-pointer mt-3"
           >
             Hire Me
           </button>

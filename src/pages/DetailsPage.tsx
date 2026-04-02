@@ -35,7 +35,7 @@ const DetailsPage = () => {
         <div className="max-w-6xl mx-auto  pt-6">
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wide text-text-muted hover:text-pink transition"
+            className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wide text-text-muted hover:text-aqua transition"
           >
             <ArrowLeft size={14} />
             Back
@@ -104,7 +104,7 @@ const DetailsPage = () => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 font-mono text-[11px] tracking-widest uppercase text-bg bg-pink border-none px-5 py-2.5 cursor-pointer transition-all duration-200 hover:bg-pink/80 hover:-translate-y-px text-[11px] font-mono uppercase flex items-center gap-2 transition border"
+                className="px-6 py-3 font-mono text-[11px] tracking-widest uppercase text-bg bg-aqua border-none px-5 py-2.5 cursor-pointer transition-all duration-200 hover:bg-aqua/80 hover:-translate-y-px text-[11px] font-mono uppercase flex items-center gap-2 transition border"
               >
                 Live Demo <ExternalLinkIcon size={14} />
               </a>

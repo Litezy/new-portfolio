@@ -94,7 +94,7 @@ function ExpertiseCell({
       className="bg-bg p-10 px-10 relative overflow-hidden transition-colors duration-300 hover:bg-[#111111] group cursor-default"
     >
       {/* Left accent bar on hover */}
-      <div className="absolute top-0 left-0 w-0.5 h-0 bg-pink group-hover:h-full transition-all duration-500 ease-out" />
+      <div className="absolute top-0 left-0 w-0.5 h-0 bg-aqua group-hover:h-full transition-all duration-500 ease-out" />
 
       {/* Big background number */}
       <span className="absolute top-6 right-8 font-['Bebas_Neue'] text-[80px] text-[#1a1a1a] leading-none pointer-events-none group-hover:text-[rgba(255,45,120,0.06)] transition-colors duration-300">
@@ -102,7 +102,7 @@ function ExpertiseCell({
       </span>
 
       {/* Icon */}
-      <div className="w-11 h-11 border border-[#2e2e2e] flex items-center justify-center text-lg mb-6 group-hover:border-pink transition-colors duration-300">
+      <div className="w-11 h-11 border border-[#2e2e2e] flex items-center justify-center text-lg mb-6 group-hover:border-aqua transition-colors duration-300">
         {area.icon}
       </div>
 
@@ -127,7 +127,7 @@ function ExpertiseCell({
             </span>
             <div className="h-0.5 bg-[#2e2e2e] relative overflow-hidden">
               <div
-                className="h-full bg-pink transition-all duration-1000"
+                className="h-full bg-aqua transition-all duration-1000"
                 style={{ width: `${skill.pct}%` }}
               />
             </div>
@@ -162,7 +162,7 @@ export default function ExpertisePage() {
           <h1 className="anim-child font-['Bebas_Neue'] text-[clamp(52px,7vw,96px)] leading-[0.9] tracking-[0.02em]">
             PRECISION
             <br />
-            <span className="text-pink">ENGINEERING</span>
+            <span className="text-aqua">ENGINEERING</span>
           </h1>
           <p className="anim-child mt-5 text-[15px] text-[#888] max-w-[560px] leading-relaxed">
             Every system is architected with surgical intent — performance,
