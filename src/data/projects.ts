@@ -3,7 +3,6 @@ import getlinked from '../assets/projects/getlinked.png'
 import nextjs from '../assets/projects/nextjs.png'
 import blaize from '../assets/projects/blaize.png'
 import furniflex from '../assets/projects/furniflex.png'
-import nspare from '../assets/projects/nspare.png'
 import hng from '../assets/projects/hng.png'
 import investcalc from '../assets/projects/investcalc.png'
 import landik from '../assets/projects/landik.png'
@@ -11,7 +10,6 @@ import mall from '../assets/projects/mall.png'
 import mamiwota from '../assets/projects/mamiwota.png'
 import netflix from '../assets/projects/netflix.png'
 import tango from '../assets/projects/tango.png'
-import tasktracker from '../assets/projects/tasktracker.png'
 import todo from '../assets/projects/todo.png'
 import tictac from '../assets/projects/tictac.png'
 import ecom from '../assets/projects/ecom.png'
@@ -64,7 +62,7 @@ export const projects: Project[] = [
     desc: 'Contributed to the frontend development of a full-stack travel platform, implementing responsive pages, booking flows, and UI components.',
     tags: ['React.js', 'TailwindCSS', 'UI', 'Frontend'],
     artClass: 'web2-illustration',
-    featured: false,
+    featured: true,
     actionLabel: 'Visit Site',
     slug: 'jemi-travels',
     liveUrl: 'https://jemi-travels.vercel.app',
@@ -94,7 +92,7 @@ export const projects: Project[] = [
     desc: 'Finance platform for trading gift cards, crypto, and digital assets. Handled frontend integration with responsive design, secure forms, and real-time updates.',
     tags: ['React.js', 'TailwindCSS', 'Node.js', 'Sequelize', 'MySQL', 'Finance'],
     artClass: 'web2-illustration',
-    featured: true,
+    featured: false,
     actionLabel: 'Visit App',
     slug: 'moniequest',
     liveUrl: 'https://moniequest.com',
@@ -146,6 +144,7 @@ export const projects: Project[] = [
     repoUrl: ''
   },
   
+  
   {
   id: 'hng-landing',
   name: 'HNG Landing Page',
@@ -175,6 +174,66 @@ export const projects: Project[] = [
   slug: 'fast-ecommerce-ui',
   liveUrl: 'https://sample-ecoms.netlify.app/',
   repoUrl: ''
+},
+{
+  id: 'litezy-mall',
+  name: 'Litezy Mall',
+  category: 'web2',
+  tag: 'FRONTEND',
+  img: mall,
+  desc: 'Frontend e-commerce web application showcasing product listings, UI interactions, and responsive shopping experience.',
+  tags: ['React.js', 'TailwindCSS', 'E-commerce'],
+  artClass: 'web2-illustration',
+  featured: false,
+  actionLabel: 'View Code',
+  slug: 'litezy-mall',
+  liveUrl: '',
+  repoUrl: 'https://github.com/Litezy/litezy-mall'
+},
+{
+  id: 'mamiwota-nft',
+  name: 'MamiWota NFT UI',
+  category: 'web3',
+  tag: 'WEB3',
+  img: mamiwota,
+  desc: 'Frontend interface for an NFT collection showcasing mint UI, layout design, and interactive elements for Web3 users.',
+  tags: ['HTML', 'CSS', 'JavaScript', 'NFT', 'Web3'],
+  artClass: 'web3-illustration',
+  featured: false,
+  actionLabel: 'View Code',
+  slug: 'mamiwota-nft',
+  liveUrl: '',
+  repoUrl: 'https://github.com/Litezy/mamiWOTA'
+},
+{
+  id: 'netflix-landing',
+  name: 'Netflix Landing Page',
+  category: 'web2',
+  tag: 'FRONTEND',
+  img: netflix,
+  desc: 'Pixel-perfect Netflix landing page clone focused on layout replication, responsiveness, and UI accuracy.',
+  tags: ['HTML', 'CSS', 'JavaScript', 'UI'],
+  artClass: 'web2-illustration',
+  featured: false,
+  actionLabel: 'Visit Site',
+  slug: 'netflix-landing',
+  liveUrl: 'https://jovial-narwhal-999893.netlify.app/',
+  repoUrl: ''
+},
+{
+  id: 'tango-cars',
+  name: 'Tango Cars',
+  category: 'web2',
+  tag: 'FRONTEND',
+  img: tango,
+  desc: 'Car rental UI showcasing listings, layout structuring, and responsive frontend design using Bootstrap.',
+  tags: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+  artClass: 'web2-illustration',
+  featured: false,
+  actionLabel: 'View Code',
+  slug: 'tango-cars',
+  liveUrl: '',
+  repoUrl: 'https://github.com/Litezy/tangoCars'
 },
 {
   id: 'investment-calculator',
@@ -221,6 +280,21 @@ export const projects: Project[] = [
   liveUrl: '',
   repoUrl: 'https://github.com/Litezy/To-Do-list_App'
 },
+{
+  id: 'landik-landing',
+  name: 'Landik Landing Page',
+  category: 'web2',
+  tag: 'FRONTEND',
+  img: landik,
+  desc: 'Responsive landing page UI focused on clean layout structure, spacing, and modern frontend design principles.',
+  tags: ['HTML', 'CSS', 'JavaScript', 'UI'],
+  artClass: 'web2-illustration',
+  featured: false,
+  actionLabel: 'View Code',
+  slug: 'landik-landing',
+  liveUrl: '',
+  repoUrl: 'https://github.com/Litezy/landik'
+},
   {
     id: 'nextjs-blog',
     name: 'NextJs Blog App',
@@ -260,7 +334,7 @@ export const projects: Project[] = [
     desc: 'A decentralized NFT platform for minting, managing, and trading Purple Collectibles. Integrated smart contracts for secure ownership and transfers.',
     tags: ['Solidity', 'Hardhat', 'Next.js', 'NFT', 'Web3'],
     artClass: 'web3-illustration',
-    featured: true,
+    featured: false,
     actionLabel: 'View dApp',
     slug: 'purple-collectibles',
     liveUrl: 'https://purple-nft.vercel.app',
@@ -308,5 +382,12 @@ export const web2Projects  = projects.filter(p => p.category === 'web2')
 export const bentoWeb3 = web3Projects.slice(0, 2)
 export const bentoWeb2  = web2Projects.slice(0, 2)
 
+export const featuredWeb3 = projects.filter(
+  p => p.featured && p.category === 'web3'
+)
+
+export const featuredWeb2 = projects.filter(
+  p => p.featured && p.category === 'web2'
+)
 export const getProjectById   = (id: string)   => projects.find(p => p.id   === id)
 export const getProjectBySlug = (slug: string) => projects.find(p => p.slug === slug)

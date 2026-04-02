@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import image from '../../../assets/belbeing.jpeg';
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -40,7 +41,7 @@ export default function Nav() {
           onClick={() => navigate('/')}
           className="font-mono text-[13px] font-bold text-pink tracking-[0.04em] cursor-pointer logo-glow bg-transparent border-none uppercase"
         >
-          BELZIEE<span className="">_</span>DEV
+          <img src={image} className='w-10 h-10 rounded-full object-contain' alt="" />
         </button>
 
         {/* ── Desktop links ── */}

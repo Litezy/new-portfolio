@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Layout from '../components/layout/Layout'
 import BentoSection from '../components/BentoSection'
+import { usePageAnimate } from '../hooks/usePageAnimate'
 
 const STACK_TAGS = [
   'SOLIDITY',
@@ -25,11 +26,12 @@ const NODES = [
 ]
 
 export default function HomePage() {
+  const {rightRef} = usePageAnimate()
   const navigate = useNavigate()
 
   return (
     <Layout>
-      <div className="relative overflow-hidden bg-bg">
+      <div ref={rightRef} className="relative overflow-hidden bg-bg">
 
         {/* ══════════════════════════════════════════════════════════
           HERO
@@ -40,7 +42,7 @@ export default function HomePage() {
           <div className="w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 ">
 
             {/* ── LEFT ── */}
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col anim-child justify-center">
 
               {/* eyebrow */}
               <div className="flex items-center gap-3 mb-5">
@@ -52,7 +54,7 @@ export default function HomePage() {
 
               {/* headline */}
               <h1 className="font-['Bebas_Neue'] leading-[0.88] tracking-[0.01em] mb-6">
-                <span className="block text-[clamp(52px,7vw,108px)] text-text">
+                <span className="block anim-child  text-[clamp(52px,7vw,108px)] text-text">
                   BETHEL NNADI
                 </span>
                 <span
@@ -64,7 +66,7 @@ export default function HomePage() {
               </h1>
 
               {/* desc */}
-              <p className="text-[15px] leading-[1.75] text-[#666] max-w-[460px] mb-8">
+              <p className="text-[15px] anim-child  leading-[1.75] text-[#666] max-w-[460px] mb-8">
                 Bridging{' '}
                 <strong className="text-text font-medium">Web3 protocols</strong>
                 {' '}and scalable{' '}
@@ -75,7 +77,7 @@ export default function HomePage() {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 anim-child ">
                 <button
                   onClick={() => navigate('/connect')}
                   className="font-mono text-[11px] tracking-[0.12em] uppercase bg-pink text-[#0d0d0d] border-none px-6 py-3.5 cursor-pointer flex items-center gap-2  transition-colors duration-200"
@@ -100,8 +102,8 @@ export default function HomePage() {
             <div className="flex-col gap-3 ">
 
               {/* CORE_STACK */}
-              <div className="bg-[#111] border border-[#252525] px-5 py-4">
-                <p className="font-mono text-[9px] tracking-[0.22em] text-[#444] uppercase mb-3">CORE_STACK</p>
+              <div className="bg-[#111] anim-child border border-[#252525] px-5 py-4">
+                <p className="font-mono   text-[9px] tracking-[0.22em] text-[#444] uppercase mb-3">CORE_STACK</p>
                 <div className="flex flex-wrap gap-1.5">
                   {STACK_TAGS.map(t => (
                     <span key={t} className="font-mono text-[9px] tracking-[0.06em] uppercase text-text-dim bg-[#1a1a1a] border border-[#2a2a2a] px-2 py-1">
@@ -112,8 +114,8 @@ export default function HomePage() {
               </div>
 
               {/* ACTIVE NODE */}
-              <div className="bg-[#111] border border-[#252525] px-5 py-4">
-                <p className="font-mono text-[9px] tracking-[0.22em] text-[#444] uppercase mb-3">ACTIVE_NODE</p>
+              <div className="bg-[#111] anim-child  border border-[#252525] px-5 py-4">
+                <p className="font-mono   text-[9px] tracking-[0.22em] text-[#444] uppercase mb-3">ACTIVE_NODE</p>
                 {NODES.map(({ key, val, cls }) => (
                   <div key={key} className="flex justify-between items-center py-1.5 border-b border-[#1a1a1a] last:border-0">
                     <span className="font-mono text-[9px] tracking-[0.12em] uppercase text-text-dim">{key}</span>
@@ -123,7 +125,7 @@ export default function HomePage() {
               </div>
 
               {/* stat tile */}
-              <div className="bg-[#111] border border-[#252525] px-5 py-4 flex items-center justify-between">
+              <div className="bg-[#111] anim-child  border border-[#252525] px-5 py-4 flex items-center justify-between">
                 <div>
                   <p className="font-mono text-[9px] tracking-[0.22em] text-[#444] uppercase mb-1">CONTRACTS_DEPLOYED</p>
                   <p className="font-['Bebas_Neue'] text-[34px] text-pink leading-none"

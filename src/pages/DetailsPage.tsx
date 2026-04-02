@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
-import { getCatMeta } from "./WorkPage"
-import { CodeIcon, ExternalLinkIcon, ArrowLeft } from "lucide-react"
-import Layout from "../components/layout/Layout"
-import type { Project } from "../data/projects"
-import { getProjectBySlug } from "../data/projects"
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { getCatMeta } from "./WorkPage";
+import { CodeIcon, ExternalLinkIcon, ArrowLeft } from "lucide-react";
+import Layout from "../components/layout/Layout";
+import type { Project } from "../data/projects";
+import { getProjectBySlug } from "../data/projects";
 
 const DetailsPage = () => {
-  const { slug } = useParams()
-  const navigate = useNavigate()
-  const [project, setProject] = useState<Project | null>(null)
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const [project, setProject] = useState<Project | null>(null);
 
   useEffect(() => {
-    if (!slug) return
-    const found = getProjectBySlug(slug)
-    setProject(found || null)
-  }, [slug])
+    if (!slug) return;
+    const found = getProjectBySlug(slug);
+    setProject(found || null);
+  }, [slug]);
 
   if (!project) {
     return (
@@ -24,16 +24,14 @@ const DetailsPage = () => {
           Project not found.
         </div>
       </Layout>
-    )
+    );
   }
 
-  const cat = getCatMeta(project.category)
+  const cat = getCatMeta(project.category);
 
   return (
     <Layout>
       <div className="bg-bg min-h-screen ">
-
-        {/* 🔙 BACK NAV */}
         <div className="max-w-6xl mx-auto  pt-6">
           <button
             onClick={() => navigate(-1)}
@@ -79,7 +77,6 @@ const DetailsPage = () => {
 
         {/* CONTENT */}
         <div className="max-w-6xl mx-auto py-10">
-
           <h1 className="text-[28px] md:text-[34px] font-display tracking-wide text-text mb-4">
             {project.name}
           </h1>
@@ -102,7 +99,6 @@ const DetailsPage = () => {
 
           {/* ACTIONS */}
           <div className="flex flex-wrap gap-4">
-
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
@@ -128,7 +124,7 @@ const DetailsPage = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default DetailsPage
+export default DetailsPage;

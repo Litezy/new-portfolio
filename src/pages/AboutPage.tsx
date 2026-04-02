@@ -1,15 +1,14 @@
-import { useEffect, useRef } from 'react'
-import { animate } from 'popmotion'
 import { arsenalChips } from '../data'
 import Layout from '../components/layout/Layout'
-import belBeing from '../assets/belbeing.jpg'
+import belBeing from '../assets/belbeing.jpeg'
+import { usePageAnimate } from '../hooks/usePageAnimate'
 
 export default function AboutPage() {
-  const imgRef = useRef<HTMLDivElement>(null)
-  const rightRef = useRef<HTMLDivElement>(null)
+  const { imgRef, rightRef, statsRef } = usePageAnimate()
 
 
- return (
+
+  return (
     <Layout>
       <div id="page-about">
         <div
@@ -18,21 +17,22 @@ export default function AboutPage() {
         >
           {/* Left — portrait */}
           <div className="border-r border-[#252525] md:border-r border-r-0">
+
             {/* Image */}
             <div ref={imgRef} className="w-full" style={{ aspectRatio: '3/4' }}>
-              <div className="w-full h-full bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center relative">
+              <div className="w-full h-full bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center relative overflow-hidden">
                 <div className="absolute top-4 left-4 w-5 h-5 border-t border-l border-pink" />
                 <div className="absolute bottom-4 right-4 w-5 h-5 border-b border-r border-pink" />
                 <img
                   src={belBeing}
                   alt="belziee"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2">
+            <div ref={statsRef} className="grid grid-cols-2">
               {[
                 { num: '04+', label: 'Years Exp' },
                 { num: '30+', label: 'Deployments' },
@@ -61,8 +61,9 @@ export default function AboutPage() {
             <div className="anim-child font-mono text-[9px] tracking-[0.2em] text-pink uppercase mb-4">
               THE ARCHITECT
             </div>
+
             <h1 className="anim-child font-['Bebas_Neue'] text-[clamp(40px,8vw,84px)] leading-[0.9] mb-6 md:mb-8">
-              Bethel{" "}
+              Bethel{' '}
               <span className="text-pink">Nnadi.</span>
             </h1>
 
@@ -71,6 +72,7 @@ export default function AboutPage() {
               immersive web experiences. My approach blends the structural discipline
               of traditional engineering with the fluid speed of modern Web3 protocols.
             </p>
+
             <p className="anim-child text-[14px] md:text-[15px] leading-[1.75] text-[#888] mb-4">
               Currently focused on{' '}
               <strong className="text-text font-medium">Kinetic Architectures</strong>{' '}

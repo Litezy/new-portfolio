@@ -5,13 +5,13 @@ import { animate } from 'popmotion'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { projects, web3Projects, web2Projects, type Project } from '../data/projects'
 import Layout from '../components/layout/Layout'
-import { artMap, artBgMap } from '../components/ProjectArt'
 import type { CatMeta, FilterTab, FilterValue, ProjectCardProps } from '../utils/utils'
+import { usePageAnimate } from '../hooks/usePageAnimate'
 
 
 
 const FILTER_TABS: FilterTab[] = [
-  { label: 'ALL WORK', value: '',     icon: '⬡' },
+  { label: 'ALL WORKS', value: '',     icon: '⬡' },
   { label: 'WEB3',     value: 'web3', icon: '◈' },
   { label: 'WEB2',     value: 'web2', icon: '⬢' },
 ]
@@ -63,18 +63,6 @@ const CodeIcon = ({ size = 13 }: { size?: number }) => (
   </svg>
 )
 
-// ─── Noise overlay ────────────────────────────────────────────────────────────
-
-// const noiseStyle: React.CSSProperties = {
-//   position: 'absolute',
-//   inset: 0,
-//   backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E")`,
-//   backgroundRepeat: 'repeat',
-//   backgroundSize: '180px',
-//   opacity: 0.035,
-//   mixBlendMode: 'overlay',
-//   pointerEvents: 'none',
-// }
 
 
 function ProjectCard({ project }: ProjectCardProps) {
@@ -144,9 +132,9 @@ function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#1a1a1a]">
           <button
             onClick={goToDetail}
-            className="text-[11px] font-mono uppercase tracking-wide text-pink flex items-center gap-2"
+            className="text-[11px] cursor-pointer font-mono uppercase tracking-wide text-pink flex items-center gap-2"
           >
-            View Project <ArrowRight size={12} />
+            Learn more <ArrowRight size={12} />
           </button>
 
           <div className="flex items-center gap-3">
@@ -155,8 +143,9 @@ function ProjectCard({ project }: ProjectCardProps) {
                 href={project.repoUrl}
                 target="_blank"
                 onClick={e => e.stopPropagation()}
-                className="text-[#555] hover:text-[#aaa] transition"
+                className="text-[#555] flex items-center gap-1 hover:text-[#aaa] transition"
               >
+                 <span className='text-xs'>Code</span>
                 <CodeIcon size={14} />
               </a>
             )}
@@ -166,8 +155,9 @@ function ProjectCard({ project }: ProjectCardProps) {
                 href={project.liveUrl}
                 target="_blank"
                 onClick={e => e.stopPropagation()}
-                className="text-[#555] hover:text-[#aaa] transition"
-              >
+                className="text-[#555] flex items-center gap-1 hover:text-[#aaa] transition"
+              > 
+                 <span className='text-xs'>Demo</span>
                 <ExternalIcon size={14} />
               </a>
             )}
@@ -180,8 +170,12 @@ function ProjectCard({ project }: ProjectCardProps) {
 // ─── WorkPage ─────────────────────────────────────────────────────────────────
 
 export default function WorkPage() {
+    const { rightRef: headerRef } = usePageAnimate({
+    childStaggerBase: 100,
+    childStaggerStep: 80,
+  })
+
   const navigate   = useNavigate()
-  const headerRef  = useRef<HTMLDivElement>(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const activeFilter = (searchParams.get('filter') ?? '') as FilterValue
@@ -191,32 +185,7 @@ export default function WorkPage() {
     : activeFilter === 'web2' ? web2Projects
     : projects
 
-  // Header entrance animation
-  // useEffect(() => {
-  //   const container = headerRef.current
-  //   if (!container) return
 
-  //   const children = container.querySelectorAll<HTMLElement>('.anim-child')
-  //   children.forEach((el, i) => {
-  //     el.style.opacity   = '0'
-  //     el.style.transform = 'translateY(20px)'
-
-  //     const t = setTimeout(() => {
-  //       animate({
-  //         from: 0,
-  //         to: 1,
-  //         duration: 700,
-  //         ease: [0.22, 1, 0.36, 1] as unknown as string,
-  //         onUpdate: (v: number) => {
-  //           el.style.opacity   = String(v)
-  //           el.style.transform = `translateY(${(1 - v) * 20}px)`
-  //         },
-  //       })
-  //     }, i * 80)
-
-  //     return () => clearTimeout(t)
-  //   })
-  // }, [])
 
   const setFilter = (value: FilterValue) => {
     value ? setSearchParams({ filter: value }) : setSearchParams({})

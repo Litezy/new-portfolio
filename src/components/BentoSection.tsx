@@ -1,7 +1,8 @@
 // src/components/BentoSection.tsx
 
 import { useNavigate } from 'react-router-dom'
-import { bentoWeb3, bentoWeb2, type Project } from '../data/projects'
+import { bentoWeb3, bentoWeb2, type Project,featuredWeb3, featuredWeb2 } from '../data/projects'
+import VoidArchive from './VoidArchive'
 
 // ─── Quotes ──────────────────────────────────────────────────────────────────
 
@@ -200,7 +201,7 @@ const BioBlock = () => {
         {(
           [
             { k: 'FOCUS', v: 'Kinetic Architectures' },
-            { k: 'STACK', v: 'Solidity · Next.js · Rust' },
+            { k: 'STACK', v: 'Solidity · JavaScript · TypeScript' },
             { k: 'STATUS', v: 'Available for hire' },
           ] as const
         ).map(({ k, v }) => (
@@ -215,7 +216,7 @@ const BioBlock = () => {
 
       <button
         onClick={() => navigate('/about')}
-        className="mt-auto font-mono text-[9px] tracking-[0.12em] uppercase text-pink border border-[#2a1520] px-4 py-2.5 hover:bg-pink hover:text-[#0d0d0d] transition-all duration-200 flex items-center justify-center gap-2"
+        className="mt-auto cursor-pointer font-mono text-[9px] tracking-[0.12em] uppercase text-pink border border-[#2a1520] px-4 py-2.5 hover:bg-pink hover:text-[#0d0d0d] transition-all duration-200 flex items-center justify-center gap-2"
       >
         FULL PROFILE <ArrowRight size={11} />
       </button>
@@ -229,8 +230,8 @@ const StatsBlock = () => (
   <div className="bg-[#0d0d0d] grid grid-cols-2 divide-x divide-[#1a1a1a]">
     {(
       [
-        { n: '08+', l: 'YRS EXP' },
-        { n: '42', l: 'DEPLOYS' },
+        { n: '4+', l: 'YRS EXP' },
+        { n: '32', l: 'DEPLOYS' },
       ] as const
     ).map(({ n, l }) => (
       <div key={n} className="flex flex-col items-center justify-center gap-1 py-8">
@@ -241,30 +242,6 @@ const StatsBlock = () => (
   </div>
 )
 
-// ─── VoidArchive CTA ──────────────────────────────────────────────────────────
-
-const VoidArchive = () => {
-  const navigate = useNavigate()
-
-  return (
-    <div
-      onClick={() => navigate('/work')}
-      className="bg-[#0d0d0d] hover:bg-[#111] transition-colors duration-200 cursor-pointer p-7 flex items-center justify-between group"
-    >
-      <div className="flex flex-col gap-1">
-        <p className="font-['Bebas_Neue'] text-[clamp(20px,2.2vw,30px)] text-[#f5f5f5] leading-none group-hover:text-pink transition-colors duration-200">
-          THE VOID ARCHIVE
-        </p>
-        <p className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#333]">
-          ACCESSING 244 DISTRIBUTED REPOSITORIES...
-        </p>
-      </div>
-      <div className="w-10 h-10 border border-[#252525] flex items-center justify-center text-[#444] shrink-0 group-hover:border-pink group-hover:text-pink transition-all duration-200">
-        <ArrowRight size={16} />
-      </div>
-    </div>
-  )
-}
 
 // ─── BentoSection (main export) ───────────────────────────────────────────────
 
@@ -296,9 +273,9 @@ export default function BentoSection() {
             filter="web3"
           />
           <div className="flex flex-col gap-[1px] flex-1 bg-[#1a1a1a]">
-            {bentoWeb3.map(p => (
-              <WorkCard key={p.id} project={p} filter="web3" />
-            ))}
+            {featuredWeb3.map(p => (
+  <WorkCard key={p.id} project={p} filter="web3" />
+))}
           </div>
         </div>
 
@@ -311,9 +288,9 @@ export default function BentoSection() {
             filter="web2"
           />
           <div className="flex flex-col gap-[1px] flex-1 bg-[#1a1a1a]">
-            {bentoWeb2.map(p => (
-              <WorkCard key={p.id} project={p} filter="web2" />
-            ))}
+            {featuredWeb2.map(p => (
+  <WorkCard key={p.id} project={p} filter="web3" />
+))}
           </div>
         </div>
 
@@ -331,7 +308,7 @@ export default function BentoSection() {
           className="col-span-2"
           style={{ gridColumn: 'span 2' }}
         >
-          <VoidArchive />
+          <VoidArchive/>
         </div>
       </div>
 
@@ -350,9 +327,9 @@ export default function BentoSection() {
             filter="web3"
           />
           <div className="flex flex-col divide-y divide-[#1a1a1a]">
-            {bentoWeb3.map(p => (
-              <WorkCard key={p.id} project={p} filter="web3" />
-            ))}
+            {featuredWeb3.map(p => (
+  <WorkCard key={p.id} project={p} filter="web3" />
+))}
           </div>
         </div>
 
@@ -365,9 +342,9 @@ export default function BentoSection() {
             filter="web2"
           />
           <div className="flex flex-col divide-y divide-[#1a1a1a]">
-            {bentoWeb2.map(p => (
-              <WorkCard key={p.id} project={p} filter="web2" />
-            ))}
+            {featuredWeb2.map(p => (
+  <WorkCard key={p.id} project={p} filter="web3" />
+))}
           </div>
         </div>
 
