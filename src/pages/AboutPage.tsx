@@ -2,47 +2,12 @@ import { useEffect, useRef } from 'react'
 import { animate } from 'popmotion'
 import { arsenalChips } from '../data'
 import Layout from '../components/layout/Layout'
-import belBeing from '../assets/bel_being.jpeg';
+import belBeing from '../assets/belbeing.jpg'
 
 export default function AboutPage() {
   const imgRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
 
-  // useEffect(() => {
-  //   if (imgRef.current) {
-  //     imgRef.current.style.opacity = '0'
-  //     imgRef.current.style.transform = 'translateX(-32px)'
-  //     animate({
-  //       from: 0, to: 1,
-  //       duration: 900,
-  //       ease: [0.22, 1, 0.36, 1] as any,
-  //       onUpdate: v => {
-  //         if (!imgRef.current) return
-  //         imgRef.current.style.opacity = String(v)
-  //         imgRef.current.style.transform = `translateX(${(1 - v) * -32}px)`
-  //       },
-  //     })
-  //   }
-
-  //   if (rightRef.current) {
-  //     const children = rightRef.current.querySelectorAll('.anim-child')
-  //     children.forEach((el, ) => {
-  //       const htmlEl = el as HTMLElement
-  //       htmlEl.style.opacity = '0'
-  //       htmlEl.style.transform = 'translateY(24px)'
-  //       animate({
-  //         from: 0, to: 1,
-  //         duration: 700,
-  //       //   delay: 150 + i * 80,
-  //         ease: [0.22, 1, 0.36, 1] as any,
-  //         onUpdate: v => {
-  //           htmlEl.style.opacity = String(v)
-  //           htmlEl.style.transform = `translateY(${(1 - v) * 24}px)`
-  //         },
-  //       })
-  //     })
-  //   }
-  // }, [])
 
  return (
     <Layout>

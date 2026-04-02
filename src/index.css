@@ -146,4 +146,3 @@ body::before {
 ::-webkit-scrollbar       { width: 4px; }
 ::-webkit-scrollbar-track { background: #0d0d0d; }
 ::-webkit-scrollbar-thumb { background: #252525; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: #ff2d78; }

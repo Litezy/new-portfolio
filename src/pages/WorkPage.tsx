@@ -79,32 +79,7 @@ const CodeIcon = ({ size = 13 }: { size?: number }) => (
 
 function ProjectCard({ project }: ProjectCardProps) {
   const navigate = useNavigate()
-  const cardRef  = useRef<HTMLDivElement>(null)
-  const Art      = artMap[project.artClass]
-  const cat      = getCatMeta(project.category)
-
-  // useEffect(() => {
-  //   const el = cardRef.current
-  //   if (!el) return
-  //   el.style.opacity   = '0'
-  //   el.style.transform = 'translateY(32px)'
-
-  //   const timer = setTimeout(() => {
-  //     animate({
-  //       from: 0,
-  //       to: 1,
-  //       duration: 650,
-  //       ease: [0.22, 1, 0.36, 1] as unknown as string,
-  //       onUpdate: (v: number) => {
-  //         if (!el) return
-  //         el.style.opacity   = String(v)
-  //         el.style.transform = `translateY(${(1 - v) * 32}px)`
-  //       },
-  //     })
-  //   }, index * 90)
-
-  //   return () => clearTimeout(timer)
-  // }, [index])
+  const cat = getCatMeta(project.category)
 
   const goToDetail = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -113,148 +88,95 @@ function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <div
-      ref={cardRef}
       onClick={goToDetail}
-      className={[
-        'relative overflow-hidden cursor-pointer group',
-        'bg-[#0d0d0d] transition-colors duration-300 hover:bg-[#101010]',
-        'flex flex-col',
-        project.featured ? 'col-span-2 max-[900px]:col-span-1' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      className="
+        group relative flex flex-col overflow-hidden cursor-pointer
+        bg-[#111] border border-[#1f1f1f]
+        hover:border-[#2e2e2e] hover:-translate-y-[2px]
+        transition-all duration-300
+      "
     >
-      {/* Left accent bar */}
-      <div
-        className="absolute left-0 top-0 w-[2px] h-0 group-hover:h-full transition-all duration-500 ease-out z-10"
-        style={{ background: cat.color }}
-      />
+      {/* Image */}
+      <div className="relative  overflow-hidden">
+        {project.img && (
+          <img
+            src={project.img}
+            alt={project.name}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+        )}
 
-      {/* Art zone */}
-      <div
-        className={[
-          'w-full relative overflow-hidden flex items-center justify-center',
-          project.featured ? 'aspect-[21/9]' : 'aspect-video',
-        ].join(' ')}
-        style={{ background: artBgMap[project.artClass] }}
-      >
-        <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.035]">
-          {Art ? <Art /> : null}
-        </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
 
-        {/* <div style={noiseStyle} /> */}
-
-        {/* Bottom gradient */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-2/3 pointer-events-none"
-          style={{ background: 'linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 100%)' }}
-        />
-
-        {/* Category badge */}
+        {/* Category */}
         <span
-          className="absolute top-3 left-3 font-mono text-[8px] tracking-[0.18em] uppercase px-2.5 py-1 border backdrop-blur-sm"
-          style={{ color: cat.color, borderColor: cat.color + '44', background: cat.bg }}
+          className="absolute top-3 left-3 text-[9px] px-2 py-1 font-mono uppercase border backdrop-blur"
+          style={{ color: cat.color, borderColor: cat.color + '40', background: cat.bg }}
         >
-          {project.category.toUpperCase()}
+          {project.category}
         </span>
-
-        {/* Tag badge */}
-        <span className="absolute top-3 right-3 font-mono text-[8px] tracking-[0.12em] uppercase px-2.5 py-1 bg-[rgba(13,13,13,0.82)] border border-[#2a2a2a] text-[#666] backdrop-blur-sm">
-          {project.tag}
-        </span>
-
-        {/* Hover overlay */}
-        <div
-          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ background: 'rgba(13,13,13,0.45)' }}
-        >
-          <div
-            className="font-mono text-[10px] tracking-[0.2em] uppercase px-4 py-2 border flex items-center gap-2"
-            style={{ color: cat.color, borderColor: cat.color + '55', background: '' }}
-          >
-            VIEW DETAILS <ArrowRight size={12} />
-          </div>
-        </div>
       </div>
 
-      {/* Info zone */}
-      <div className="flex flex-col flex-1 px-7 pt-6 pb-7 border-t border-[#1c1c1c]">
-        <h3
-          className="font-mono text-[15px] font-bold uppercase tracking-[0.06em] leading-tight mb-2 transition-colors duration-200 group-hover:text-pink"
-          style={{ color: '#e8e8e8' }}
-        >
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-5">
+        <h3 className="text-[16px] font-semibold text-text mb-2 group-hover:text-pink transition">
           {project.name}
         </h3>
 
-        <p className="text-[13px] text-[#5a5a5a] leading-relaxed mb-5 flex-1">{project.desc}</p>
+        <p className="text-[13px] text-[#888] leading-relaxed mb-4 flex-1">
+          {project.desc}
+        </p>
 
-        {/* Tech tags */}
-        <div className="flex flex-wrap gap-1.5 mb-6">
-          {project.tags.map(t => (
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {project.tags.map(tag => (
             <span
-              key={t}
-              className="font-mono text-[8px] tracking-[0.1em] uppercase text-[#444] bg-[#111] border border-[#1e1e1e] px-2 py-1 hover:border-[#2e2e2e] hover:text-[#666] transition-colors duration-200"
+              key={tag}
+              className="text-[10px] px-2 py-1 bg-[#161616] border border-[#222] text-[#666] font-mono uppercase"
             >
-              {t}
+              {tag}
             </span>
           ))}
         </div>
 
-        {/* CTA row */}
-        <div className="flex items-center gap-3 pt-5 border-t border-[#1a1a1a]">
+        {/* Actions */}
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#1a1a1a]">
           <button
             onClick={goToDetail}
-            className="flex-1 font-mono text-[9px] tracking-[0.14em] uppercase py-2.5 border flex items-center justify-center gap-2 transition-all duration-200"
-            style={{ color: cat.color, borderColor: cat.color + '33' }}
-            onMouseEnter={e => {
-              const btn = e.currentTarget as HTMLButtonElement
-              btn.style.background  = cat.bg
-              btn.style.borderColor = cat.color + '66'
-            }}
-            onMouseLeave={e => {
-              const btn = e.currentTarget as HTMLButtonElement
-              btn.style.background  = 'transparent'
-              btn.style.borderColor = cat.color + '33'
-            }}
+            className="text-[11px] font-mono uppercase tracking-wide text-pink flex items-center gap-2"
           >
-            LEARN MORE <ArrowRight size={11} />
+            View Project <ArrowRight size={12} />
           </button>
 
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={e => e.stopPropagation()}
-              className="font-mono text-[9px] tracking-[0.12em] uppercase py-2.5 px-3.5 border border-[#222] text-[#444] flex items-center gap-1.5 transition-all duration-200 hover:border-[#3a3a3a] hover:text-[#888]"
-            >
-              DEMO <ExternalIcon size={11} />
-            </a>
-          )}
+          <div className="flex items-center gap-3">
+            {project.repoUrl && (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                onClick={e => e.stopPropagation()}
+                className="text-[#555] hover:text-[#aaa] transition"
+              >
+                <CodeIcon size={14} />
+              </a>
+            )}
 
-          {project.repoUrl && (
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={e => e.stopPropagation()}
-              className="font-mono text-[9px] tracking-[0.12em] uppercase py-2.5 px-3.5 border border-[#222] text-[#444] flex items-center gap-1.5 transition-all duration-200 hover:border-[#3a3a3a] hover:text-[#888]"
-            >
-              CODE <CodeIcon size={11} />
-            </a>
-          )}
-
-          {!project.liveUrl && !project.repoUrl && (
-            <div className="w-9 h-9 border border-[#1e1e1e] flex items-center justify-center text-[#333] text-xs transition-all duration-200 hover:text-[#555] hover:border-[#2a2a2a]">
-              ✶
-            </div>
-          )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                onClick={e => e.stopPropagation()}
+                className="text-[#555] hover:text-[#aaa] transition"
+              >
+                <ExternalIcon size={14} />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>
   )
 }
-
 // ─── WorkPage ─────────────────────────────────────────────────────────────────
 
 export default function WorkPage() {
@@ -404,13 +326,17 @@ export default function WorkPage() {
         {/* ══ GRID ════════════════════════════════════════════════════════════ */}
         {visibleProjects.length > 0 ? (
           <div
-            key={activeFilter || 'all'}
-            className="grid grid-cols-2 gap-px bg-[#161616] max-[900px]:grid-cols-1"
-          >
-            {visibleProjects.map((project, i) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+  key={activeFilter || 'all'}
+  className="
+    grid gap-6 pt-10
+    sm:grid-cols-2 
+    lg:grid-cols-3
+  "
+>
+  {visibleProjects.map(project => (
+    <ProjectCard key={project.id} project={project} />
+  ))}
+</div>
         ) : (
           <div className="flex flex-col items-center justify-center py-36 px-10 text-center">
             <div className="font-['Bebas_Neue'] text-[80px] text-[#111] leading-none mb-3 select-none">

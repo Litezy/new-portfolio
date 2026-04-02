@@ -1,16 +1,15 @@
-import { useEffect, useRef, useState } from "react"
-import { useParams } from "react-router-dom"
-import { artBgMap, artMap } from "../components/ProjectArt"
+import { useEffect, useState } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 import { getCatMeta } from "./WorkPage"
-import {  CodeIcon, ExternalLinkIcon } from "lucide-react"
+import { CodeIcon, ExternalLinkIcon, ArrowLeft } from "lucide-react"
 import Layout from "../components/layout/Layout"
 import type { Project } from "../data/projects"
 import { getProjectBySlug } from "../data/projects"
 
 const DetailsPage = () => {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const [project, setProject] = useState<Project | null>(null)
-  const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!slug) return
@@ -21,61 +20,51 @@ const DetailsPage = () => {
   if (!project) {
     return (
       <Layout>
-        <div className="h-[60vh] flex items-center justify-center text-[#555] font-mono">
+        <div className="h-[60vh] flex items-center justify-center text-text-muted font-mono">
           Project not found.
         </div>
       </Layout>
     )
   }
 
-  const Art = artMap[project.artClass]
   const cat = getCatMeta(project.category)
 
   return (
     <Layout>
-      <div
-        ref={cardRef}
-        className="relative overflow-hidden bg-[#0d0d0d] flex flex-col "
-      >
-        {/* Accent line */}
-        <div
-          className="absolute left-0 top-0 w-[2px] h-full"
-          style={{ background: cat.color }}
-        />
+      <div className="bg-bg min-h-screen ">
 
-        {/* Art / Hero */}
+        {/* 🔙 BACK NAV */}
+        <div className="max-w-6xl mx-auto  pt-6">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wide text-text-muted hover:text-pink transition"
+          >
+            <ArrowLeft size={14} />
+            Back
+          </button>
+        </div>
+
+        {/* HERO */}
         <div
-          className="relative w-full aspect-[21/9] flex items-center justify-center overflow-hidden"
-          style={{ background: artBgMap[project.artClass] }}
+          className="relative mt-6 mx-auto max-w-6xl overflow-hidden border border-border bg-bg2"
+          // style={{ background: artBgMap[project.artClass] }}
         >
-          {Art ? (
-            <div className="absolute inset-0 transition-transform duration-700 hover:scale-[1.03]">
-              <Art />
-            </div>
-          ) : (
-            /* Fallback CSS Art */
-            <div className="w-full h-full flex items-center justify-center">
-              <div
-                className="w-[60%] h-[60%] border border-dashed flex items-center justify-center font-mono text-xs tracking-widest"
-                style={{
-                  borderColor: cat.color + "55",
-                  color: cat.color,
-                }}
-              >
-                NO PREVIEW
-              </div>
-            </div>
+          {project.img && (
+            <img
+              src={project.img}
+              alt={project.name}
+              className="w-full h-full object-c"
+            />
           )}
 
-          {/* Overlay gradient */}
-          <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#0d0d0d] to-transparent" />
+          <div className="absolute inset-0 " />
 
           {/* Category */}
           <span
-            className="absolute top-4 left-4 text-[10px] font-mono px-3 py-1 border uppercase tracking-widest"
+            className="absolute top-4 left-1  text-[10px] font-mono px-3 py-1 uppercase tracking-widest border backdrop-blur"
             style={{
               color: cat.color,
-              borderColor: cat.color + "44",
+              borderColor: cat.color + "40",
               background: cat.bg,
             }}
           >
@@ -83,47 +72,45 @@ const DetailsPage = () => {
           </span>
 
           {/* Tag */}
-          <span className="absolute top-4 right-4 text-[10px] font-mono px-3 py-1 border border-[#2a2a2a] text-[#666]">
+          <span className="absolute top-4 right-4 text-[10px] font-mono px-3 py-1 border border-border text-text-muted bg-bg/70">
             {project.tag}
           </span>
         </div>
 
-        {/* Content */}
-        <div className="px-8 py-10 border-t border-[#1c1c1c]">
-          <h1 className="text-2xl font-bold font-mono mb-4 text-[#e8e8e8] tracking-wide">
+        {/* CONTENT */}
+        <div className="max-w-6xl mx-auto py-10">
+
+          <h1 className="text-[28px] md:text-[34px] font-display tracking-wide text-text mb-4">
             {project.name}
           </h1>
 
-          <p className="text-[#5a5a5a] leading-relaxed mb-8 max-w-2xl">
+          <p className="text-text-dim leading-relaxed max-w-2xl mb-8">
             {project.desc}
           </p>
 
-          {/* Tags */}
+          {/* TECH STACK */}
           <div className="flex flex-wrap gap-2 mb-10">
             {project.tags.map((t) => (
               <span
                 key={t}
-                className="text-[10px] font-mono px-2 py-1 border border-[#1e1e1e] bg-[#111] text-[#555]"
+                className="text-[11px] font-mono px-3 py-1 bg-bg2 border border-border text-text-muted uppercase"
               >
                 {t}
               </span>
             ))}
           </div>
 
-          {/* Actions */}
-          <div className="flex gap-4 flex-wrap">
+          {/* ACTIONS */}
+          <div className="flex flex-wrap gap-4">
+
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 text-xs font-mono border flex items-center gap-2"
-                style={{
-                  color: cat.color,
-                  borderColor: cat.color + "55",
-                }}
+                className="px-6 py-3 font-mono text-[11px] tracking-widest uppercase text-bg bg-pink border-none px-5 py-2.5 cursor-pointer transition-all duration-200 hover:bg-pink/80 hover:-translate-y-px text-[11px] font-mono uppercase flex items-center gap-2 transition border"
               >
-                LIVE DEMO <ExternalLinkIcon size={14} />
+                Live Demo <ExternalLinkIcon size={14} />
               </a>
             )}
 
@@ -132,9 +119,9 @@ const DetailsPage = () => {
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 text-xs font-mono border border-[#2a2a2a] text-[#777] flex items-center gap-2"
+                className="px-6 py-3 text-[11px] font-mono uppercase border border-border text-text-muted flex items-center gap-2 hover:text-text hover:border-border2 transition"
               >
-                SOURCE <CodeIcon size={14} />
+                Source Code <CodeIcon size={14} />
               </a>
             )}
           </div>
