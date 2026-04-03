@@ -91,7 +91,7 @@ function ExpertiseCell({
   return (
     <div
       ref={cellRef}
-      className="bg-bg p-10 px-10 relative overflow-hidden transition-colors duration-300 hover:bg-[#111111] group cursor-default"
+      className="bg-bg p-10  relative overflow-hidden transition-colors duration-300 hover:bg-[#111111] group cursor-default"
     >
       {/* Left accent bar on hover */}
       <div className="absolute top-0 left-0 w-0.5 h-0 bg-aqua group-hover:h-full transition-all duration-500 ease-out" />
@@ -149,11 +149,11 @@ export default function ExpertisePage() {
 
   return (
     <Layout>
-      <div id="page-expertise">
+      <div id="page-expertise border-2">
         {/* Header */}
         <div
           ref={headerRef}
-          className=" pt-[60px] pb-10 border-b border-[#252525]"
+          className="  pb-10 border-b border-[#252525]"
         >
           <div className="anim-child font-mono text-[10px] tracking-[0.2em] text-[#555] uppercase mb-4 flex items-center gap-3">
             TECHNICAL DEPTH
@@ -171,14 +171,14 @@ export default function ExpertisePage() {
         </div>
 
         {/* Expertise grid */}
-        <div className="grid grid-cols-2 gap-px bg-[#252525] max-[900px]:grid-cols-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#252525] max-[900px]:grid-cols-1">
           {expertiseAreas.map((area, i) => (
             <ExpertiseCell key={area.num} area={area} delay={i * 100} />
           ))}
         </div>
 
         {/* Process */}
-        <div className="px-6 md:px-10 py-20 border-t border-[#252525]">
+        <div className="px-6 md:px-10 pb-20 border-t border-[#252525]">
           <div className="font-mono text-[10px] tracking-[0.2em] text-[#555] uppercase mb-4 flex items-center gap-3">
             METHODOLOGY
             <span className="inline-block w-[60px] h-px bg-[#2e2e2e]" />
@@ -186,7 +186,7 @@ export default function ExpertisePage() {
           <h2 className="font-['Bebas_Neue'] text-[clamp(36px,5vw,64px)] leading-[0.9] tracking-[0.02em] mb-12">
             THE VOID PROCESS
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#252525] border border-[#252525]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#252525] border border-[#252525]">
             {processSteps.map((step) => (
               <div key={step.num} className="bg-bg p-7 px-6">
                 <div className="font-['Bebas_Neue'] text-[64px] text-[#2e2e2e] leading-none mb-4">

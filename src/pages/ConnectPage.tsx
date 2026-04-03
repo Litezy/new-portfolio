@@ -110,8 +110,6 @@ export default function ConnectPage() {
           <div
             ref={leftRef}
             className="
-              px-6 md:px-10 lg:px-16
-              py-12 md:py-16
               border-b lg:border-b-0 lg:border-r border-border
               flex flex-col justify-between
             "
