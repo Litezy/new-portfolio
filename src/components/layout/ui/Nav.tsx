@@ -26,8 +26,10 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // close mobile menu on route change
-  useEffect(() => { setOpen(false) }, [location.pathname])
+ useEffect(() => {
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  setOpen(false)
+}, [location.pathname])
 
   return (
     <>

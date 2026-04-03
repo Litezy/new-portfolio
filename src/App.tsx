@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom"
-import Layout from "./components/layout/Layout"
 import { GeneralPages } from "./utils/pageLinks"
 
 function App() {

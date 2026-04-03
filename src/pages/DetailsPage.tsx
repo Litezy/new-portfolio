@@ -1,22 +1,15 @@
-import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getCatMeta } from "./WorkPage";
 import { CodeIcon, ExternalLinkIcon, ArrowLeft } from "lucide-react";
 import Layout from "../components/layout/Layout";
-import type { Project } from "../data/projects";
 import { getProjectBySlug } from "../data/projects";
+import { getCatMeta } from "../utils/utils";
 
 const DetailsPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const [project, setProject] = useState<Project | null>(null);
+  const project = slug ? getProjectBySlug(slug) : null;
 
-  useEffect(() => {
-    if (!slug) return;
-    const found = getProjectBySlug(slug);
-    setProject(found || null);
-  }, [slug]);
-
+   
   if (!project) {
     return (
       <Layout>

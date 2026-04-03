@@ -1,7 +1,7 @@
 // src/components/BentoSection.tsx
 
 import { useNavigate } from 'react-router-dom'
-import { bentoWeb3, bentoWeb2, type Project,featuredWeb3, featuredWeb2 } from '../data/projects'
+import {  type Project,featuredWeb3, featuredWeb2 } from '../data/projects'
 import VoidArchive from './VoidArchive'
 
 // ─── Quotes ──────────────────────────────────────────────────────────────────

@@ -1,7 +1,6 @@
 import React from 'react'
 import Footer from '../Footer'
 import Nav from './ui/Nav'
-import Cursor from './ui/Cursor'
 
 
 interface LayoutProps {
