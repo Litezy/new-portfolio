@@ -153,7 +153,7 @@ export default function ExpertisePage() {
         {/* Header */}
         <div
           ref={headerRef}
-          className="px-6 md:px-10 pt-[60px] pb-10 border-b border-[#252525]"
+          className=" pt-[60px] pb-10 border-b border-[#252525]"
         >
           <div className="anim-child font-mono text-[10px] tracking-[0.2em] text-[#555] uppercase mb-4 flex items-center gap-3">
             TECHNICAL DEPTH

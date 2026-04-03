@@ -1,25 +1,22 @@
-import { arsenalChips } from '../data'
-import Layout from '../components/layout/Layout'
-import belBeing from '../assets/belbeing.jpeg'
-import { usePageAnimate } from '../hooks/usePageAnimate'
+import { arsenalChips } from "../data";
+import Layout from "../components/layout/Layout";
+import belBeing from "../assets/belbeing.jpeg";
+import { usePageAnimate } from "../hooks/usePageAnimate";
 
 export default function AboutPage() {
-  const { imgRef, rightRef, statsRef } = usePageAnimate()
-
-
+  const { imgRef, rightRef, statsRef } = usePageAnimate();
 
   return (
     <Layout>
       <div id="page-about">
         <div
           className="grid min-h-[calc(100vh-64px)]"
-          style={{ gridTemplateColumns: 'min(420px, 100%) 1fr' }}
+          style={{ gridTemplateColumns: "min(420px, 100%) 1fr" }}
         >
           {/* Left — portrait */}
           <div className="border-r border-[#252525] md:border-r border-r-0">
-
             {/* Image */}
-            <div ref={imgRef} className="w-full" style={{ aspectRatio: '3/4' }}>
+            <div ref={imgRef} className="w-full" style={{ aspectRatio: "3/4" }}>
               <div className="w-full h-full bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center relative overflow-hidden">
                 <div className="absolute top-4 left-4 w-5 h-5 border-t border-l border-aqua" />
                 <div className="absolute bottom-4 right-4 w-5 h-5 border-b border-r border-aqua" />
@@ -34,16 +31,18 @@ export default function AboutPage() {
             {/* Stats */}
             <div ref={statsRef} className="grid grid-cols-2">
               {[
-                { num: '04+', label: 'Years Exp' },
-                { num: '30+', label: 'Deployments' },
+                { num: "04+", label: "Years Exp" },
+                { num: "30+", label: "Deployments" },
               ].map(({ num, label }) => (
                 <div
                   key={label}
                   className="p-5 md:p-7 md:px-8 border-t border-[#252525] border-r last:border-r-0"
                 >
                   <div className="font-['Bebas_Neue'] text-[36px] md:text-[48px] text-text leading-none mb-1">
-                    {num.replace('+', '')}
-                    <span className="text-aqua">{num.includes('+') ? '+' : ''}</span>
+                    {num.replace("+", "")}
+                    <span className="text-aqua">
+                      {num.includes("+") ? "+" : ""}
+                    </span>
                   </div>
                   <div className="font-mono text-[9px] tracking-[0.15em] text-[#555] uppercase">
                     {label}
@@ -63,23 +62,25 @@ export default function AboutPage() {
             </div>
 
             <h1 className="anim-child font-['Bebas_Neue'] text-[clamp(40px,8vw,84px)] leading-[0.9] mb-6 md:mb-8">
-              Bethel{' '}
-              <span className="text-aqua">Nnadi.</span>
+              Bethel <span className="text-aqua">Nnadi.</span>
             </h1>
 
             <p className="anim-child text-[14px] md:text-[15px] leading-[1.75] text-[#888] mb-4">
-              I specialize in building high-performance decentralized systems and
-              immersive web experiences. My approach blends the structural discipline
-              of traditional engineering with the fluid speed of modern Web3 protocols.
+              I specialize in building high-performance decentralized systems
+              and immersive web experiences. My approach blends the structural
+              discipline of traditional engineering with the fluid speed of
+              modern Web3 protocols.
             </p>
 
             <p className="anim-child text-[14px] md:text-[15px] leading-[1.75] text-[#888] mb-4">
-              Currently focused on{' '}
-              <strong className="text-text font-medium">Kinetic Architectures</strong>{' '}
+              Currently focused on{" "}
+              <strong className="text-text font-medium">
+                Kinetic Architectures
+              </strong>{" "}
               — systems that aren't just functional, but move and scale with the
-              velocity of their users. I believe code should be as beautiful as it is
-              performant, following a philosophy of surgical precision and minimalist
-              complexity.
+              velocity of their users. I believe code should be as beautiful as
+              it is performant, following a philosophy of surgical precision and
+              minimalist complexity.
             </p>
 
             <div className="anim-child font-mono text-[10px] tracking-[0.15em] uppercase text-[#888] mt-8 md:mt-10 mb-4 flex items-center gap-3">
@@ -100,7 +101,12 @@ export default function AboutPage() {
             </div>
 
             <div className="anim-child flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-8 flex-wrap">
-              <button className="font-mono text-[11px] tracking-[0.12em] uppercase text-[#0d0d0d] bg-aqua border-none px-7 py-4 cursor-pointer transition-all duration-200 hover:bg-aqua/80 hover:-translate-y-0.5 flex items-center gap-2 w-full sm:w-auto justify-center">
+              <a
+                href="/Bethel_Nnadi_Resume.pdf"
+                download
+                rel="noopener noreferrer"
+                className="font-mono text-[11px] tracking-[0.12em] uppercase text-[#0d0d0d] bg-aqua border-none px-7 py-4 cursor-pointer transition-all duration-200 hover:bg-aqua/80 hover:-translate-y-0.5 flex items-center gap-2 w-full sm:w-auto justify-center"
+              >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path
                     d="M7 1v8M3 9l4 4 4-4M1 13h12"
@@ -111,7 +117,7 @@ export default function AboutPage() {
                   />
                 </svg>
                 DOWNLOAD RESUME.PDF
-              </button>
+              </a>
               <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-[#888]">
                 <span className="status-dot" />
                 AVAILABLE FOR HIRE
@@ -121,5 +127,5 @@ export default function AboutPage() {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
