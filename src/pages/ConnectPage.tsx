@@ -169,7 +169,7 @@ export default function ConnectPage() {
           {/* RIGHT — form */}
           <div
             ref={formRef}
-            className="px-6 md:px-10 lg:px-16 py-12 md:py-16 flex items-start justify-center"
+            className=" py-12 md:py-16 flex items-start justify-center"
           >
             <div className="anim-child w-full max-w-[520px] bg-surface border border-border p-6 md:p-8 lg:p-10">
 
